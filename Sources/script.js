@@ -66,7 +66,11 @@ setTimeout(() => {
 }, 500);
 });
 })
-  .catch(error => console.log("An error has been occured"+error))
+  .catch(error => {
+    console.log("An error has been occured"+error)
+    document.getElementById("addCard").innerHTML += 
+    `<div class="p-5" style="font-size:50px; background:#0fbfa8; font-weight:600">Please open index.html in Live Server, <br>in order to see Section_3 Objects :)<div/>`;
+  })
 }
 )
 
