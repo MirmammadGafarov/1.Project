@@ -32,6 +32,32 @@ jQuery(document).ready(function($) {
     whenChange();
   });
 
+
+
+
+
+
+  var istek = new XMLHttpRequest();
+  istek.onload = function(){
+    if(this.readyState == 4 & this.status == 200){
+      var data = JSON.parse(this.response);
+      for(i = 0; i < data.new_products.length; i++){
+        document.getElementById("addCard").innerHTML += 
+
+        '<div  class="col-lg-3 col-md-4 col-sm-6 col-12"><div class="new_brand" ><div id="'+data.new_products[i].id +'" class="new_img" style="background: url('+data.new_products[i].first_image+')" ></div></div><div class="bottom_text"><a href="#">'+data.new_products[i].name+'</a><br><span>$'+data.new_products[i].price+'</span></div></div>'      
+;
+      }
+    }else{
+      console.log("An error has been occured")
+    }
+  }
+  istek.open("GET", "/Sources/new_products.json", true);
+  istek.send();
+
+
+
+
+
 // Change backgroundImage of divs(.new_img) via their own IDs
 $(document).ready(function change_image($) {
   let new_img = document.getElementsByClassName('new_img');
@@ -113,7 +139,15 @@ $(document).ready(function change_image($) {
 });
 
 
-//Create a BackToTop Button
+
+
+
+
+
+
+
+
+  //Create a BackToTop Button
 let toTop = document.querySelector(".to-top");
 window.addEventListener("scroll", () => {
   if (window.pageYOffset > 500) {
@@ -122,3 +156,5 @@ window.addEventListener("scroll", () => {
     toTop.classList.remove("active");
   }
 });
+
+
