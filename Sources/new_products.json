@@ -2,46 +2,53 @@
     "new_products" : [
 
         {
-            "name" : "Light Grey Sofa",
-            "price" : 799.99,
-            "id" : "light_grey_sofa",
-            "first_image" : "./images/1.1.jpg"
+            "name"      : "Light Grey Sofa",
+            "price"     : 799.99,
+            "id"        : "light_grey_sofa",
+            "firstImg"  : "./images/1.1.jpg",
+            "secondImg" : "./images/1.2.jpg"
         },
         {
-            "name" : "Celling Lights",
-            "price" : 39.49,
-            "id" : "celling_lights",
-            "first_image" : "./images/2.1.jpg"
+            "name"      : "Celling Lights",
+            "price"     : 39.49,
+            "id"        : "celling_lights",
+            "firstImg"  : "./images/2.1.jpg",
+            "secondImg" : "./images/2.2.jpg"
         },
         {
-            "name" : "High Stand Chair",
-            "price" : 24.99,
-            "id" : "high_stand_chair",
-            "first_image" : "./images/3.1.jpg"
+            "name"      : "High Stand Chair",
+            "price"     : 24.99,
+            "id"        : "high_stand_chair",
+            "firstImg"  : "./images/3.1.jpg",
+            "secondImg" : "./images/3.2.jpg"
         },
         {
-            "name" : "Dining Sofa with Tea-table",
-            "price" : 99.99,
-            "id" : "dining_sofa",
-            "first_image" : "./images/4.1.jpg"
+            "name"      : "Dining Sofa with Tea-table",
+            "price"     : 99.99,
+            "id"        : "dining_sofa",
+            "firstImg"  : "./images/4.1.jpg",
+            "secondImg" : "./images/4.2.jpg"
         },
         {
-            "name" : "Bathroom Cloths Shelves",
-            "price" : 23,
-            "id" : "bathroom",
-            "first_image" : "./images/5.1.jpg"
+            "name"      : "Bathroom Cloths Shelves",
+            "price"     : 23,
+            "id"        : "bathroom",
+            "firstImg"  : "./images/5.1.jpg",
+            "secondImg" : "./images/5.2.png"
         },
         {
-            "name" : "Golden Lamp for Room",
-            "price" : 12.99,
-            "id" : "golden_lamp",
-            "first_image" : "./images/6.1.jpg"
+            "name"      : "Golden Lamp for Room",
+            "price"     : 12.99,
+            "id"        : "golden_lamp",
+            "firstImg"  : "./images/6.1.jpg",
+            "secondImg" : "./images/6.2.jpg"
         },
         {
-            "name" : "White Cuddle Chair with Cusions",
-            "price" : 29.99,
-            "id" : "white_cuddle",
-            "first_image" : "./images/7.1.jpg"
+            "name"      : "White Cuddle Chair with Cusions",
+            "price"     : 29.99,
+            "id"        : "white_cuddle",
+            "firstImg"  : "./images/7.1.jpg",
+            "secondImg" : "./images/7.2.jpg"
         }
     ]
 }

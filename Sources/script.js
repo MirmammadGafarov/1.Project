@@ -14,7 +14,7 @@ function toStickNavbar(){
 };
 
 
-// Resize the navigation bar width value according to breakpoint (992px)
+// Resize the navigation bar width value according to the breakpoint (992px)
 jQuery(document).ready(function($) {
     let whenChange = function() {
       let width = document.body.clientWidth;
@@ -32,120 +32,43 @@ jQuery(document).ready(function($) {
     whenChange();
   });
 
+//Add products to the Section N-3 from .JSON file
+$(document).ready(function getProducts(){
+  fetch('/Sources/new_products.json')
+  .then(response => {
+    return response.json();
+  })
+  .then(data => {
+    data.new_products.forEach(function (product) {
+      document.getElementById("addCard").innerHTML += 
 
-
-
-
-
-  var istek = new XMLHttpRequest();
-  istek.onload = function(){
-    if(this.readyState == 4 & this.status == 200){
-      var data = JSON.parse(this.response);
-      for(i = 0; i < data.new_products.length; i++){
-        document.getElementById("addCard").innerHTML += 
-
-        '<div  class="col-lg-3 col-md-4 col-sm-6 col-12"><div class="new_brand" ><div id="'+data.new_products[i].id +'" class="new_img" style="background: url('+data.new_products[i].first_image+')" ></div></div><div class="bottom_text"><a href="#">'+data.new_products[i].name+'</a><br><span>$'+data.new_products[i].price+'</span></div></div>'      
-;
+      `<div  class="col-lg-3 col-md-4 col-sm-6 col-12">
+         <div class="new_brand" >
+           <div id="${product.id}" class="new_img" style="background: url('${product.firstImg}')" ></div>
+         </div>
+         <div class="bottom_text">
+           <a href="#">${product.name}</a><br>
+           <span>$${product.price}</span>
+         </div>
+       </div>`; 
+//Change products' Images by means of Mouse Events
+setTimeout(() => {
+  if(product.id){
+    $('#' + product.id ).on({
+      mouseenter:function(){
+        this.style.backgroundImage = `url(${product.secondImg})`
+      },
+      mouseout:function(){
+        this.style.backgroundImage = `url(${product.firstImg})`
       }
-    }else{
-      console.log("An error has been occured")
-    }
+    })
   }
-  istek.open("GET", "/Sources/new_products.json", true);
-  istek.send();
-
-
-
-
-
-// Change backgroundImage of divs(.new_img) via their own IDs
-$(document).ready(function change_image($) {
-  let new_img = document.getElementsByClassName('new_img');
-  for(let i = 0; i < new_img.length; i++){
-
-    if(new_img[i].id =='light_grey_sofa'){
-      $('#' + new_img[i].id ).on({
-        mouseenter:function(){
-          this.style.backgroundImage = 'url(./images/1.2.jpg)'
-        },
-        mouseout:function(){
-          this.style.backgroundImage = 'url(./images/1.1.jpg)'
-        }
-        })
-    }
-    else if(new_img[i].id =='celling_lights'){
-      $('#' + new_img[i].id ).on({
-        mouseenter:function(){
-          this.style.backgroundImage = 'url(./images/2.2.jpg)'
-        },
-        mouseout:function(){
-          this.style.backgroundImage = 'url(./images/2.1.jpg)'
-        }
-        })
-    }
-    else if(new_img[i].id =='high_stand_chair'){
-      $('#' + new_img[i].id ).on({
-        mouseenter:function(){
-          this.style.backgroundImage = 'url(./images/3.2.jpg)'
-        },
-        mouseout:function(){
-          this.style.backgroundImage = 'url(./images/3.1.jpg)'
-        }
-        })
-    }
-    else if(new_img[i].id =='dining_sofa'){
-      $('#' + new_img[i].id ).on({
-        mouseenter:function(){
-          this.style.backgroundImage = 'url(./images/4.2.jpg)'
-        },
-        mouseout:function(){
-          this.style.backgroundImage = 'url(./images/4.1.jpg)'
-        }
-        })
-    }
-    else if(new_img[i].id =='bathroom'){
-      $('#' + new_img[i].id ).on({
-        mouseenter:function(){
-          this.style.backgroundImage = 'url(./images/5.2.png)'
-        },
-        mouseout:function(){
-          this.style.backgroundImage = 'url(./images/5.1.jpg)'
-        }
-        })
-    }   
-    else if(new_img[i].id =='golden_lamp'){
-      $('#' + new_img[i].id ).on({
-        mouseenter:function(){
-          this.style.backgroundImage = 'url(./images/6.2.jpg)'
-        },
-        mouseout:function(){
-          this.style.backgroundImage = 'url(./images/6.1.jpg)'
-        }
-        })
-    } 
-    else if(new_img[i].id =='white_cuddle'){
-      $('#' + new_img[i].id ).on({
-        mouseenter:function(){
-          this.style.backgroundImage = 'url(./images/7.2.jpg)'
-        },
-        mouseout:function(){
-          this.style.backgroundImage = 'url(./images/7.1.jpg)'
-        }
-        })
-    }else{
-      console.log("There wass't any ID to change backgroundImage. Make sure the ID you write in if-statement is same with the object's ID that you want to change its backgroundImage.")
-    }
-  }   
+}, 500);
 });
-
-
-
-
-
-
-
-
-
+})
+  .catch(error => console.log("An error has been occured"+error))
+}
+)
 
   //Create a BackToTop Button
 let toTop = document.querySelector(".to-top");
@@ -156,5 +79,3 @@ window.addEventListener("scroll", () => {
     toTop.classList.remove("active");
   }
 });
-
-

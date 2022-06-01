@@ -346,7 +346,7 @@ html{
   height: 375px;
   background-size: cover !important;
   background-position: center center !important;
-  transition: 0.4s !important;
+  transition: 0.5s !important;
 }
 
 .section_3 .bottom_text {
